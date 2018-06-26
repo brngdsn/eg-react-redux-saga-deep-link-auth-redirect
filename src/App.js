@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import AddTodo from './containers/AddTodo'
 import VisibleTodoList from './containers/VisibleTodoList'
+import FilterLink from './containers/FilterLink'
 import { VisibilityFilters } from './store/actions'
 
 class App extends Component {
