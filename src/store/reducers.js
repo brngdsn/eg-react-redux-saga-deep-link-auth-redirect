@@ -1,4 +1,5 @@
 import C from './constants'
+import { VisibilityFilters } from './actions'
 
 export const todos = (state=[], action) => {
     switch (action.type) {
