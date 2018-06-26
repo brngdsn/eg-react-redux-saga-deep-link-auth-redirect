@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Link = ({ active, children, onClick }) => (
   <button
      onClick={onClick}
@@ -9,5 +11,5 @@ const Link = ({ active, children, onClick }) => (
     {children}
   </button>
 )
-​
+
 export default Link
