@@ -1,5 +1,5 @@
 import Todo from './Todo'
-​
+
 const TodoList = ({ todos, toggleTodo }) => (
   <ul>
     {todos.map(todo =>

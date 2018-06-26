@@ -7,17 +7,17 @@ export const addTodo = text => ({
   id: nextTodoId++,
   text
 })
-​
+
 export const setVisibilityFilter = filter => ({
   type: C.SET_VISIBILITY_FILTER,
   filter
 })
-​
+
 export const toggleTodo = id => ({
   type: C.TOGGLE_TODO,
   id
 })
-​
+
 export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',

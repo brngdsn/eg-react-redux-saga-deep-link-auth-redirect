@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { addTodo } from '../store/actions'
-​
+
 const AddTodo = ({ dispatch }) => {
   let input
-​
+  
   return (
     <div>
       <form
@@ -24,5 +24,5 @@ const AddTodo = ({ dispatch }) => {
     </div>
   )
 }
-​
+
 export default connect()(AddTodo)
