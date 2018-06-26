@@ -12,7 +12,7 @@ export const todos = (state=[], action) => {
             completed: false
           }
         ]
-      case caches.TOGGLE_TODO:
+      case C.TOGGLE_TODO:
         return state.map(todo =>
           (todo.id === action.id)
             ? {...todo, completed: !todo.completed}
