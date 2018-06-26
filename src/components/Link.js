@@ -9,5 +9,5 @@ const Link = ({ active, children, onClick }) => (
     {children}
   </button>
 )
-​
+
 export default Link
