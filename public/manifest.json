@@ -8,7 +8,11 @@
       "type": "image/x-icon"
     }
   ],
+<<<<<<< HEAD
   "start_url": "./index.html",
+=======
+  "start_url": ".",
+>>>>>>> Initial commit from Create React App
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
