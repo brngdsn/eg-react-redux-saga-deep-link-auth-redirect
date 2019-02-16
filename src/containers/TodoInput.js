@@ -14,13 +14,14 @@ class TodoInput extends Component {
     }
   }
 
-  onChange = (todoInput) => {
+  onChange = (event) => {
+    const todoInput = event.target.value
     this.setState({
       todoInput: todoInput
     })
   }
 
-  onClick () {
+  onClick = () => {
     this.props.addTodosRequest({
       title: this.state.todoInput,
       done: false

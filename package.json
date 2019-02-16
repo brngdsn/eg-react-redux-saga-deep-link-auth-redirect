@@ -18,7 +18,7 @@
   },
   "homepage": "https://brngdsn.github.io/eg-react-redux",
   "scripts": {
-    "mock": "json-server --watch mock/db.json --routes mock/routes.json --port 4000",
+    "mock": "json-server --watch mock/db.json --routes mock/routes.json --port 4000 --delay 1250",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
