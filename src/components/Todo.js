@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text}
-  </li>
-)
+import styled from 'styled-components'
 
-export default Todo
+const StyledTodoContainer = styled.div``
+
+export default class Todo extends Component {
+
+  render () {
+    const { title, done } = this.props.todo
+    return (
+      <StyledTodoContainer>
+        <div>
+          <span>{title}</span>
+        </div>
+        <div>
+          <input type={`radio`} value={done} disabled={true}/>
+        </div>
+      </StyledTodoContainer>
+    )
+  }
+}
