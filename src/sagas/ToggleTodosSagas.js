@@ -14,8 +14,7 @@ export function * toggleTodos (api, action) {
     yield put(TodosActions.toggleTodos(data))
     yield put(TodosActions.idleTodos(data))
   } else {
-    yield put(ToggleTodosActions.completeTodosFailure())
-    // yield put(TodosActions.idleTodos(data))
-    // yield put(TodosActions.unCompleteTodos(data))
+    yield put(ToggleTodosActions.toggleTodosFailure())
+    yield put(TodosActions.idleTodos(data))
   }
 }

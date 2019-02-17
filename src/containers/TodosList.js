@@ -23,12 +23,12 @@ class TodosList extends React.PureComponent {
   render () {
     const { fetching, payload } = this.props.todos
     return (
-      <StyledTodosListContainer>
+      <StyledTodosListContainer className={`StyledTodosListContainer`}>
         {fetching && <Fetching />}
-        {!fetching && <StyledTodosList>
+        {!fetching && <StyledTodosList className={`StyledTodosList`}>
           {payload && payload.map(todo => <Todo todo={todo} key={todo.id} />)}
         </StyledTodosList>}
-        {payload && !payload.length && <StyledEmptyTodo> - Nothing to See Here - </StyledEmptyTodo>}
+        {payload && !payload.length && <StyledEmptyTodo className={`StyledEmptyTodo`}> - Nothing to See Here - </StyledEmptyTodo>}
       </StyledTodosListContainer>
     )
   }

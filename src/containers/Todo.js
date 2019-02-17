@@ -4,23 +4,30 @@ import RemoveTodosActions from '../redux/RemoveTodosRedux'
 import ToggleTodosActions from '../redux/ToggleTodosRedux'
 import styled from 'styled-components'
 
-const StyledTodoContainer = styled.div``
+const StyledTodoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  > div:nth-child(2) {
+    flex-grow: 2;
+  }
+`
 
 class Todo extends Component {
 
-  onClickTodoRemove () {
+  onClickTodoRemove = () => {
     this.props.removeTodosRequest(this.props.todo)
   }
 
-  onClickTodoToggle () {
-    this.props.toggleTodosRequest(this.props.todo)
+  onClickTodoToggle = () => {
+    this.props.toggleTodosRequest({ id: this.props.todo.id, done: !this.props.todo.done })
   }
 
   render () {
     const { onClickTodoRemove, onClickTodoToggle } = this
     const { busy, title, done } = this.props.todo
     return (
-      <StyledTodoContainer>
+      <StyledTodoContainer className={`StyledTodoContainer`}>
         <div>
           <button onClick={onClickTodoRemove} disabled={busy}>
             {busy && <div>busy</div>}

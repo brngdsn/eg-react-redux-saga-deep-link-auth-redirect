@@ -4,7 +4,16 @@ import AddTodosActions from '../redux/AddTodosRedux'
 
 import styled from 'styled-components'
 
-const StyledTodoInputContainer = styled.div``
+const StyledTodoInputContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  > div:first-child {
+    flex-grow: 2;
+    > input {
+      width: 99%;
+    }
+  }
+`
 
 class TodoInput extends Component {
   constructor (props) {
@@ -33,7 +42,7 @@ class TodoInput extends Component {
     const { fetching } = this.props.addTodos
     const { todoInput } = this.state
     return (
-      <StyledTodoInputContainer>
+      <StyledTodoInputContainer className={`StyledTodoInputContainer`}>
         <div>
           <input placeholder={`Add todo...`} onChange={onChange} value={todoInput} disabled={fetching} />
         </div>

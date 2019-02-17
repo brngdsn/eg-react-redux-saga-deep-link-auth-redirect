@@ -1,22 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import styled from 'styled-components'
 
 const StyledTodoContainer = styled.div``
 
-export default class Todo extends Component {
+const StyledTodo = ({ todo, onClickTodoRemove, onClickTodoToggle }) => (
+  <StyledTodoContainer className={`StyledTodoContainer`}>
+    <div>
+      <button onClick={onClickTodoRemove} disabled={todo.busy}>
+        {todo.busy && <div>busy</div>}
+        {!todo.busy && <div>trash</div>}
+      </button>
+    </div>
+    <div>
+      {todo.title}
+    </div>
+    <div>
+      {todo.busy && <div>busy</div>}
+      {!todo.busy && <div onClick={onClickTodoToggle}>
+        {todo.done && <div>done</div>}
+        {!todo.done && <div>!done</div>}
+      </div>}
+    </div>
+  </StyledTodoContainer>
+)
 
-  render () {
-    const { title, done } = this.props.todo
-    return (
-      <StyledTodoContainer>
-        <div>
-          <span>{title}</span>
-        </div>
-        <div>
-          <input type={`radio`} value={done} disabled={true}/>
-        </div>
-      </StyledTodoContainer>
-    )
-  }
-}
+export default StyledTodo

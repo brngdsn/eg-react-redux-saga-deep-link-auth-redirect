@@ -7,7 +7,7 @@ export function * removeTodos (api, action) {
 
   yield put(TodosActions.busyTodos(data))
 
-  const response = yield call(api.removeTodos, data)
+  const response = yield call(api.deleteTodos, data)
 
   if (response.ok) {
     yield put(RemoveTodosActions.removeTodosSuccess(response.data))
