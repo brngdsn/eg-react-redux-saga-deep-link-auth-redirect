@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <pre>token=`{this.props.token}`</pre>
-        <pre>authenicated=`{this.props.authenticated}`</pre>
+        <pre>authenticated=`{this.props.authenticated}`</pre>
       </div>
     )
 
