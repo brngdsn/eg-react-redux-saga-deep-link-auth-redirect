@@ -5,12 +5,15 @@ import storeFactory from './redux'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const store = storeFactory()
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </Provider>,
     document.getElementById('root')
 )

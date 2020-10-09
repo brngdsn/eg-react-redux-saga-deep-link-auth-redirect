@@ -1,42 +1,39 @@
 import React, { Component } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import Root from './containers/Root'
+import Login from './containers/Login'
+import Dashboard from './containers/Dashboard'
+import ProtectedRoute from './containers/ProtectedRoute'
+import PrivateRoute from './containers/PrivateRoute'
 import './App.css'
-import TodosList from './containers/TodosList'
-import TodoInput from './containers/TodoInput'
-import styled from 'styled-components'
 
-const StyledAppContainer = styled.div`
-  // padding: 15px;
-  // margin: 15px;
-  border: 5px solid #3cc47c; // light green
-  > div {
-    // padding: 15px;
-    // margin: 15px;
-    border: 5px solid #1e392a; // dark green
-    > div {
-      // padding: 15px;
-      // margin: 15px;
-      border: 5px solid #e9c893; // baise
-      > div {
-        // padding: 15px;
-        // margin: 15px;
-        border: 5px solid #828081; // grey
-        > div {
-          // padding: 15px;
-          // margin: 15px;
-          border: 5px solid #94618e; // purple
-        }
-      }
-    }
-  }
-`
+const RoutesLinks = () => {
+  return (
+    <div>
+      RoutesLinks(not-required)
+    </div>
+  )
+}
+
+const SwitchRoutes = () => {
+  return (
+    <Switch className={`Switch`}>
+      <Route className={`Route`} path="/" exact component={Root} />
+      <ProtectedRoute className={`ProtectedRoute`} path="/login" exact component={Login} />
+      <PrivateRoute className={`PrivateRoute`} path="/dashboard" component={Dashboard} />
+      <Redirect className={`Redirect`} to="/" />
+    </Switch>
+  )
+}
 
 class App extends Component {
   render() {
     return (
-      <StyledAppContainer className={`StyledAppContainer`}>
-        <TodoInput />
-        <TodosList />
-      </StyledAppContainer>
+      <div>
+        App
+        <RoutesLinks />
+        <SwitchRoutes />
+      </div>
     )
   }
 }
