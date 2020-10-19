@@ -27,6 +27,11 @@ const SwitchRoutes = () => {
 }
 
 class App extends Component {
+
+  componentDidMount () {
+    
+  }
+
   render() {
     return (
       <div>
@@ -36,6 +41,7 @@ class App extends Component {
       </div>
     )
   }
+  
 }
 
 export default App

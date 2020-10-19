@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { 
+  Link,
+  useRouteMatch,
+  useParams
+ } from 'react-router-dom'
 import RemoveTodosActions from '../redux/RemoveTodosRedux'
 import ToggleTodosActions from '../redux/ToggleTodosRedux'
 import styled from 'styled-components'
@@ -13,7 +18,26 @@ const StyledTodoContainer = styled.div`
   }
 `
 
+const NestedTodoLink = (props) => {
+  let { url } = useRouteMatch()
+  const { tid } = useParams()
+  return (
+    <div>
+      <pre>url={url}</pre>
+      <pre>tid={tid}</pre>
+      <pre>props.todo.id={props.todo.id}</pre>
+      <Link to={`${url}/${tid ? tid : props.todo.id}`}>
+        {props.todo.title}
+      </Link>
+    </div>
+  )
+}
+
 class Todo extends Component {
+
+  componentDidMount () {
+    
+  }
 
   onClickTodoRemove = () => {
     this.props.removeTodosRequest(this.props.todo)
@@ -25,7 +49,7 @@ class Todo extends Component {
 
   render () {
     const { onClickTodoRemove, onClickTodoToggle } = this
-    const { busy, title, done } = this.props.todo
+    const { busy, done } = this.props.todo
     return (
       <StyledTodoContainer className={`StyledTodoContainer`}>
         <div>
@@ -35,7 +59,7 @@ class Todo extends Component {
           </button>
         </div>
         <div>
-          {title}
+          <NestedTodoLink todo={this.props.todo} />
         </div>
         <div>
           {busy && <div>busy</div>}
@@ -51,6 +75,7 @@ class Todo extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    todo: (tid) => state.payload.filter(todo => todo.id === tid).reduce((a,c) => c, {id:-1}),
     toggleTodos: state.toggleTodos,
     removeTodos: state.removeTodos
   }

@@ -1,13 +1,13 @@
 import React from 'react'
-import { Route, Redirect, useLocation } from 'react-router-dom'
+import { Route, Redirect, useLocation, useRouteMatch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import AuthenticationActions, { AuthenticationSelectors } from '../redux/AuthenticationRedux'
 import { useQuery } from '../utils'
 
 const PrivateRouteRedirect = (props) => {
   const { component: Component, authenticated, ...rest } = props
-  const query = useQuery(useLocation)
-  const backto = query.get('backto')
+  const location = useLocation()
+  const backto = location.pathname
   return (
     <Route { ...rest } render={(props) => (
       authenticated
@@ -18,6 +18,11 @@ const PrivateRouteRedirect = (props) => {
 }
 
 class PrivateRoute extends React.PureComponent {
+
+  componentDidMount () {
+    
+  }
+
   render () {
     return (
       <div>
@@ -25,6 +30,7 @@ class PrivateRoute extends React.PureComponent {
       </div>
     )
   }
+  
 }
 
 const mapStateToProps = (state) => {

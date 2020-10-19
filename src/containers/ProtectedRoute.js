@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Redirect, useLocation } from 'react-router-dom'
 import { connect } from 'react-redux'
-import SessionActions, { SessionSelectors } from '../redux/SessionRedux'
+import { SessionSelectors } from '../redux/SessionRedux'
 import { useQuery } from '../utils'
 
 const ProtectedRouteRedirect = (props) => {
@@ -18,6 +18,11 @@ const ProtectedRouteRedirect = (props) => {
 }
 
 class ProtectedRoute extends React.PureComponent {
+
+  componentDidMount () {
+    
+  }
+
   render () {
     return (
       <div>
@@ -25,6 +30,7 @@ class ProtectedRoute extends React.PureComponent {
       </div>
     )
   }
+
 }
 
 const mapStateToProps = (state) => {

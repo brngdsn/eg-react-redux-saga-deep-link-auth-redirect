@@ -45,6 +45,7 @@ class Root extends React.Component {
       )
     }
   }
+  
 }
 
 const mapStateToProps = (state) => {

@@ -13,11 +13,16 @@ const DashboardRedirect = () => {
 }
 
 class Login extends React.Component {
+  
   constructor (props) {
     super(props)
     this.state = {
 
     }
+  }
+
+  componentDidMount () {
+    console.log('login')
   }
 
   render () {
